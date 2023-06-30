@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>highest marks</title>
+</head>
+<body>
+    
+
+    <script>
+        function findHighestMarks() {
+            // Get the input values from the text fields
+            var marks = [];
+            for (var i = 1; i <= 5; i++) {
+                var inputElement = document.getElementById("student" + i);
+                marks.push(parseInt(inputElement.value));
+            }
+
+             // Initialize highestmarks with the first student's marks
+            var highestMarks = marks[0];
+
+            // Iterate through the marks array starting from the second element
+            for (var i = 1; i < marks.length; i++) {
+                // Check if the current student's marks are higher than the highest marks
+                highestMarks = (marks[i] > highestMarks) ? marks[i] : highestMarks;
+            }
+
+            // Display the highest marks to the teacher
+            document.getElementById("highestMarks").innerHTML = "The highest marks scored by any student: " + highestMarks;
+        }
+    </script>
+</head>
+<body>
+    <h1>Highest Marks</h1>
+    <label for="student1">Student 1:</label>
+    <input type="number" id="student1"><br>
+    <label for="student2">Student 2:</label>
+    <input type="number" id="student2"><br>
+    <label for="student3">Student 3:</label>
+    <input type="number" id="student3"><br>
+    <label for="student4">Student 4:</label>
+    <input type="number" id="student4"><br>
+    <label for="student5">Student 5:</label>
+    <input type="number" id="student5"><br>
+    <button onclick="findHighestMarks()">Find Highest Marks</button>
+    <p id="highestMarks"></p> 
+</body>
+</html>
